@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainlogin.HelloController">
+    <AnchorPane prefHeight="400.0" prefWidth="223.0" style="-fx-background-color: #023020;" />
+    <AnchorPane prefHeight="400.0" prefWidth="402.0">
+        <TextField fx:id="tf_username" layoutX="165.0" layoutY="165.0" promptText="Enter your username" />
+        <Label layoutX="71.0" layoutY="168.0" text="Username">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="16.0" />
+            </font>
+        </Label>
+        <Label layoutX="72.0" layoutY="221.0" text="Password">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="16.0" />
+            </font>
+        </Label>
+        <Button fx:id="button_login" layoutX="168.0" layoutY="261.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" style="-fx-background-color: #023020;" text="Login" textFill="#f0f5f4">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="button_sign_up" layoutX="223.0" layoutY="316.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Sign up" textFill="#0c49f2" underline="true">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label layoutX="168.0" layoutY="322.0" prefHeight="17.0" prefWidth="78.0" text="Not a user?" />
+      <PasswordField fx:id="tf_password" layoutX="165.0" layoutY="221.0" promptText="Enter your password" />
+      <Label layoutX="168.0" layoutY="120.0" text="Login">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </Label>
+    </AnchorPane>
+</HBox>

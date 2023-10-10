@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainlogin.SignUpController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="199.0" style="-fx-background-color: #023020;" />
+      <AnchorPane prefHeight="400.0" prefWidth="402.0">
+         <children>
+            <TextField fx:id="tf_username" layoutX="165.0" layoutY="82.0" promptText="Enter your username" />
+            <Label layoutX="60.0" layoutY="82.0" text="Username">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="63.0" layoutY="132.0" text="Password">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="button_signup" layoutX="168.0" layoutY="181.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="142.0" style="-fx-background-color: #023020;" text="Signup" textFill="#f5edf4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="button_log_in" layoutX="255.0" layoutY="235.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Login" textFill="#1408f2" underline="true">
+            <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="168.0" layoutY="239.0" text="Already a User?">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font></Label>
+            <PasswordField fx:id="tf_password" layoutX="165.0" layoutY="132.0" promptText="Enter your password" />
+            <Label layoutX="165.0" layoutY="29.0" prefHeight="39.0" prefWidth="123.0" text="Register page" underline="true">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>
