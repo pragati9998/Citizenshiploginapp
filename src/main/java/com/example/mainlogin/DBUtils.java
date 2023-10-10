@@ -1,5 +1,4 @@
 package com.example.mainlogin;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -35,15 +34,13 @@ public class DBUtils {
             }
         }
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setTitle(title);
-            stage.setScene(new Scene(root, 600, 400));
-            stage.show();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle(title);
+        stage.setScene(new Scene(root, 600, 400));
+        stage.show();
     }
 
-
-
-    public static void signUpUser(ActionEvent event, String username, String password) {
+    public static void signUpUser(ActionEvent event, String username, String password, String name, Date dob, String gender, String nationality) {
         Connection connection = null;
         PreparedStatement psInsert = null;
         PreparedStatement psCheckUserExists = null;
@@ -61,9 +58,13 @@ public class DBUtils {
                 alert.setContentText("You cannot use this username.");
                 alert.show();
             } else {
-                psInsert = connection.prepareStatement("INSERT INTO users (username, password) VALUES (?, ?)");
+                psInsert = connection.prepareStatement("INSERT INTO users (username, password, name, dob, gender, nationality) VALUES (?, ?, ?, ?, ?, ?)");
                 psInsert.setString(1, username);
                 psInsert.setString(2, password);
+                psInsert.setString(3, name);
+                psInsert.setDate(4, dob);
+                psInsert.setString(5, gender);
+                psInsert.setString(6, nationality);
                 psInsert.executeUpdate();
 
                 changeScene(event, "logged-in.fxml", "Welcome!", username);
@@ -90,6 +91,8 @@ public class DBUtils {
         }
     }
 
+    // Other methods (e.g., logInUser) remain the same.
+
     public static void logInUser(ActionEvent event, String username, String password) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -97,25 +100,21 @@ public class DBUtils {
 
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx", "root", "@prac1234");
-            preparedStatement = connection.prepareStatement("SELECT password FROM users WHERE username = ?");
+            preparedStatement = connection.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
             preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
             resultSet = preparedStatement.executeQuery();
 
-            if (!resultSet.next()) {
-                System.out.println("User not found in the Database");
-                Alert alert = new Alert(AlertType.ERROR);
-                alert.setContentText("Provided credentials are incorrect!");
-                alert.show();
+            if (resultSet.next()) {
+                // Successfully logged in
+                String loggedInUsername = resultSet.getString("username");
+                changeScene(event, "logged-in.fxml", "Welcome!", loggedInUsername);
             } else {
-                String retrievedPassword = resultSet.getString("password");
-                if (retrievedPassword.equals(password)) {
-                    changeScene(event, "logged-in.fxml", "Welcome!", username);
-                } else {
-                    System.out.println("Passwords did not match!");
-                    Alert alert = new Alert(AlertType.ERROR);
-                    alert.setContentText("The provided credentials are incorrect! ");
-                    alert.show();
-                }
+                // Invalid credentials
+                System.out.println("Invalid username or password");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Invalid username or password");
+                alert.show();
             }
         } catch (SQLException e) {
             e.printStackTrace();
