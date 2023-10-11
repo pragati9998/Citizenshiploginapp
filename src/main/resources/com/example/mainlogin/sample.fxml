@@ -20,17 +20,7 @@
          </ImageView>
       </children></AnchorPane>
     <AnchorPane prefHeight="400.0" prefWidth="402.0" style="-fx-background-color: #f5f5dc;">
-        <TextField fx:id="tf_username" layoutX="165.0" layoutY="165.0" promptText="Enter your username" />
-        <Label layoutX="71.0" layoutY="168.0" text="Username">
-            <font>
-                <Font name="Arial Rounded MT Bold" size="16.0" />
-            </font>
-        </Label>
-        <Label layoutX="72.0" layoutY="221.0" text="Password">
-            <font>
-                <Font name="Arial Rounded MT Bold" size="16.0" />
-            </font>
-        </Label>
+        <TextField fx:id="tf_username" layoutX="165.0" layoutY="165.0" promptText="Enter your username" style="-fx-border-color: #020103;" />
         <Button fx:id="button_login" layoutX="168.0" layoutY="261.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" style="-fx-background-color: #023020;" text="Login" textFill="#f0f5f4">
             <font>
                 <Font size="18.0" />
@@ -45,7 +35,7 @@
          <font>
             <Font name="Arial Rounded MT Bold" size="12.0" />
          </font></Label>
-      <PasswordField fx:id="tf_password" layoutX="165.0" layoutY="221.0" promptText="Enter your password" />
+      <PasswordField fx:id="tf_password" layoutX="165.0" layoutY="221.0" promptText="Enter your password" style="-fx-border-color: #020103;" />
       <Label layoutX="168.0" layoutY="120.0" text="Login">
          <font>
             <Font name="Arial Rounded MT Bold" size="24.0" />
@@ -53,7 +43,17 @@
       </Label>
       <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="177.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@user.jpg" />
+            <Image url="@icons8-login.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="134.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons8-username-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="133.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons8-password-30%20(1).png" />
          </image>
       </ImageView>
     </AnchorPane>
