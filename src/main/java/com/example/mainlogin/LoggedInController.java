@@ -20,6 +20,12 @@ public class LoggedInController implements Initializable {
 
     @FXML
     private Label label_slogan;
+    @FXML
+    private Label label_gender;
+    @FXML
+    private Label label_dob;
+    @FXML
+    private Label label_nationality;
 
     @FXML
     @Override

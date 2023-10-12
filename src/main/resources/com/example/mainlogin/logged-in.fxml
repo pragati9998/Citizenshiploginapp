@@ -1,21 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainlogin.LoggedInController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #101b1c;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainlogin.LoggedInController">
    <children>
-      <Label fx:id="label_wel" layoutX="236.0" layoutY="81.0" text="Welcome!">
+      <Label fx:id="label_wel" layoutX="176.0" layoutY="81.0" text="Welcome!" textFill="#ebf4f5">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="label_slogan" layoutX="57.0" layoutY="174.0" text="&quot;Reach for the Stars with Celestials: Where Dreams Soar Beyond Infinity!&quot;">
+      <Label fx:id="label_slogan" layoutX="172.0" layoutY="132.0" text="&quot;Quiz the Best, Win the Rest!&quot;" textFill="#ebf4f5">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="button_logout" layoutX="233.0" layoutY="247.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: Yellow;" text="Logout" />
+      <Label fx:id="label_gender" layoutX="100.0" layoutY="180.0" />
+      <Label fx:id="label_dob" layoutX="100.0" layoutY="210.0" />
+      <Label fx:id="label_nationality" layoutX="100.0" layoutY="240.0" />
+      <Button fx:id="button_logout" layoutX="323.0" layoutY="306.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: #013220;" text="Logout" textFill="#e4e9f2" />
+      <Label fx:id="label_slogan1" layoutX="210.0" layoutY="170.0" text="&quot;Let the Quiz Begin!&quot;" textFill="#ebf4f5">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="187.0" layoutY="306.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: #013220;" text="start" textFill="#ebf4f5" />
+      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="349.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons8-quiz-40.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="129.0" layoutX="224.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@quiz-time-2453148_1920.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
