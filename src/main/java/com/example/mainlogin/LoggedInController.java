@@ -28,6 +28,9 @@ public class LoggedInController implements Initializable {
     private Label label_nationality;
 
     @FXML
+    private Button button_start;
+
+    @FXML
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         button_logout.setOnAction(new EventHandler<ActionEvent>() {
@@ -42,4 +45,10 @@ public class LoggedInController implements Initializable {
     public void setUserInformation(String username) {
         label_wel.setText("Welcome " + username + "!");
     }
+
+
+    public void startQuiz(ActionEvent event) {
+        DBUtils.changeScene(event, "quiz.fxml", "Quiz", null);
+    }
+
 }
