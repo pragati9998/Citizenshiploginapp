@@ -19,7 +19,7 @@
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="button_logout" layoutX="323.0" layoutY="310.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: #013220;" text="Logout" textFill="#f5f5f5">
+      <Button fx:id="button_logout" layoutX="323.0" layoutY="310.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: blue;" text="Logout" textFill="#f5f5f5">
          <font>
             <Font name="Arial Rounded MT Bold" size="14.0" />
          </font></Button>
@@ -28,7 +28,7 @@
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Button layoutX="187.0" layoutY="310.0" mnemonicParsing="false" onAction="#startQuiz" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: #013220;" text="Start Quiz" textFill="#f3f8f8">
+      <Button layoutX="187.0" layoutY="310.0" mnemonicParsing="false" onAction="#startQuiz" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: blue;" text="Start Quiz" textFill="#f3f8f8">
          <font>
             <Font name="Arial Rounded MT Bold" size="14.0" />
          </font></Button>

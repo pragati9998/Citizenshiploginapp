@@ -36,9 +36,9 @@ public class QuizController {
     @FXML
     private Label label_result;
 
-    private int currentQuestionIndex; // Track the current question index
-    private int correctAnswersCount; // Track the number of correct answers
-    private int totalQuestions; // Total number of questions
+    private int currentQuestionIndex;
+    private int correctAnswersCount;
+    private int totalQuestions;
 
     private final String[] questions = {
             "What is the capital of France?",
@@ -46,7 +46,7 @@ public class QuizController {
             "What is the chemical symbol for water?",
             "What is the longest river in the world?",
             "Which planet is closest to the sun?",
-            "What is the deepest ocean on Earth?",
+            "What is the capital city of Nepal?",
             "What is the hottest planet in our solar system?",
             "What is the largest animal on Earth?",
             "What is the tallest mountain in the world?",
@@ -60,7 +60,7 @@ public class QuizController {
             "Which gas makes up the majority of Earth's atmosphere?",
             "What is the largest moon of Jupiter?",
             "What is the chemical symbol for gold?",
-            "Which planet is known as the \"Red Planet\"?"
+            "Which planet is known as the 'Red Planet'?"
     };
 
     private final String[][] options = {
@@ -69,7 +69,7 @@ public class QuizController {
             {"H2O", "CO2", "O2", "N2"},
             {"Nile River", "Amazon River", "Yangtze River", "Mississippi River"},
             {"Mercury", "Venus", "Earth", "Mars"},
-            {"Pacific Ocean", "Atlantic Ocean", "Indian Ocean", "Arctic Ocean"},
+            {"Pokhara", "Kathmandu", "Bhaktapur", "Patan"},
             {"Mercury", "Venus", "Earth", "Mars"},
             {"Blue whale", "African elephant", "Giant squid", "American bison"},
             {"Mount Everest", "K2", "Kanchenjunga", "Lhotse"},
@@ -86,29 +86,50 @@ public class QuizController {
             {"Mercury", "Venus", "Earth", "Mars"}
     };
 
-    private final int[] answers = {1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 2, 1, 2, 3}; // Index of the correct answer for each question
+    private final int[] answers = {
+            1,  // Question 1, correct answer is option 1 (Paris)
+            0,  // Question 2, correct answer is option 0 (Pacific Ocean)
+            0,  // Question 3, correct answer is option 0 (H2O)
+            1,  // Question 4, correct answer is option 1 (Amazon River)
+            0,  // Question 5, correct answer is option 0 (Mercury)
+            1,  // Question 6, correct answer is option 1 (Kathmandu)
+            0,  // Question 7, correct answer is option 0 (Venus)
+            1,  // Question 8, correct answer is option 1 (Blue whale)
+            0,  // Question 9, correct answer is option 0 (Mount Everest)
+            2,  // Question 10, correct answer is option 2 (China)
+            0,  // Question 11, correct answer is option 0 (Tamil)
+            1,  // Question 12, correct answer is option 1 (Greenland shark)
+            0,  // Question 13, correct answer is option 0 (Himalayas)
+            0,  // Question 14, correct answer is option 0 (Sahara Desert)
+            0,  // Question 15, correct answer is option 0 (Antarctica)
+            3,  // Question 16, correct answer is option 3 (Mariana Trench)
+            2,  // Question 17, correct answer is option 2 (Nitrogen)
+            1,  // Question 18, correct answer is option 1 (Ganymede)
+            2,  // Question 19, correct answer is option 2 (Au)
+            3   // Question 20, correct answer is option 3 (Mars)
+    };
 
-    private final String[][] correctAnswers = {
-            {"Paris"},
-            {"Pacific Ocean"},
-            {"H2O"},
-            {"Amazon River"},
-            {"Mercury"},
-            {"Pacific Ocean"},
-            {"Venus"},
-            {"Blue whale"},
-            {"Mount Everest"},
-            {"China"},
-            {"Tamil"},
-            {"Greenland shark"},
-            {"Himalayas"},
-            {"Sahara Desert"},
-            {"Antarctica"},
-            {"Mariana Trench"},
-            {"Nitrogen"},
-            {"Ganymede"},
-            {"Au"},
-            {"Mars"}
+    private final String[] correctAnswers = {
+            "Paris",
+            "Pacific Ocean",
+            "H2O",
+            "Amazon River",
+            "Mercury",
+            "Kathmandu",
+            "Venus",
+            "Blue whale",
+            "Mount Everest",
+            "China",
+            "Tamil",
+            "Greenland shark",
+            "Himalayas",
+            "Sahara Desert",
+            "Antarctica",
+            "Mariana Trench",
+            "Nitrogen",
+            "Ganymede",
+            "Au",
+            "Mars"
     };
 
     public void initialize() {
@@ -118,12 +139,12 @@ public class QuizController {
         option3.setToggleGroup(toggleGroup);
         option4.setToggleGroup(toggleGroup);
 
-        currentQuestionIndex = 0; // Start with the first question
+        currentQuestionIndex = 0;
         correctAnswersCount = 0;
         totalQuestions = questions.length;
 
         loadQuestion(currentQuestionIndex);
-        button_back.setDisable(true); // Disable the "Back" button for the first question
+        button_back.setDisable(true);
     }
 
     @FXML
@@ -140,8 +161,8 @@ public class QuizController {
             label_result.setText("Correct!");
             label_result.setTextFill(Color.GREEN);
         } else {
-            label_result.setText("Incorrect. The correct answer is: " + correctAnswers[currentQuestionIndex][0]);
-            label_result.setTextFill(Color.WHITE);
+            label_result.setText("Incorrect. The correct answer is: " + correctAnswers[currentQuestionIndex]);
+            label_result.setTextFill(Color.RED);
         }
 
         button_back.setDisable(false);
@@ -150,7 +171,8 @@ public class QuizController {
             loadQuestion(currentQuestionIndex);
         } else {
             double percentage = (double) correctAnswersCount / totalQuestions * 100;
-            label_result.setText("Quiz has ended! Your Score Percentage: " + String.format("%.2f%%", percentage));
+            label_result.setText("Quiz has ended! Your Percentage: " + String.format("%.2f%%", percentage) +
+                    " Total Correct Answers: " + correctAnswersCount + "/" + totalQuestions);
             button_next.setDisable(true);
         }
     }

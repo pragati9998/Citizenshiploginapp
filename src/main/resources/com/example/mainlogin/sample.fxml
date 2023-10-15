@@ -21,7 +21,7 @@
       </children></AnchorPane>
     <AnchorPane prefHeight="400.0" prefWidth="402.0" style="-fx-background-color: #d9d9d9;">
         <TextField fx:id="tf_username" layoutX="165.0" layoutY="165.0" promptText="Enter your username" style="-fx-border-color: #020103;" />
-        <Button fx:id="button_login" layoutX="168.0" layoutY="261.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" style="-fx-background-color: #023020;" text="Login" textFill="#f0f0f5">
+        <Button fx:id="button_login" layoutX="166.0" layoutY="261.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="151.0" style="-fx-background-color: blue;" text="Login" textFill="#f0f0f5">
             <font>
                 <Font size="18.0" />
             </font>
