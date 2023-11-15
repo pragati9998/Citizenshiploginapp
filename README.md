@@ -43,6 +43,6 @@ The Citizenship Assessment System is designed to facilitate the integration of n
 
 ## Support
 
-If you encounter any issues, have questions, or need assistance, please contact our support team at sijan2131010@iimscollege.edu.np We are here to help you make the most of your learning experience.
+If you encounter any issues, have questions, or need assistance, please contact our support team at sijan2131010@iimscollege.edu.np or pragati2131015@iimscollege.edu.np We are here to help you make the most of your learning experience.
 
 Thank you for choosing the Citizenship Assessment System. We hope you find this platform helpful in your journey to become a well-informed and engaged citizen of your host country. Enjoy your assessments and learning!
