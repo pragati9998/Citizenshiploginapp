@@ -40,96 +40,96 @@ public class QuizController {
     private int correctAnswersCount;
     private int totalQuestions;
 
-    private final String[] questions = {
-            "What is the capital of France?",
-            "What is the largest ocean on Earth?",
-            "What is the chemical symbol for water?",
-            "What is the longest river in the world?",
-            "Which planet is closest to the sun?",
-            "What is the capital city of Nepal?",
-            "What is the hottest planet in our solar system?",
-            "What is the largest animal on Earth?",
-            "What is the tallest mountain in the world?",
-            "What is the most populous country in the world?",
-            "What is the longest language in the world?",
-            "What is the oldest living mammal on Earth?",
-            "What is the highest mountain range in the world?",
-            "What is the largest desert in the world?",
-            "What is the coldest continent on Earth?",
-            "What is the largest ocean trench in the world?",
-            "Which gas makes up the majority of Earth's atmosphere?",
-            "What is the largest moon of Jupiter?",
-            "What is the chemical symbol for gold?",
-            "Which planet is known as the 'Red Planet'?"
+     private final String[] questions = {
+            "What's the purpose of the Masathai Citizenship Test?",
+            "Which countries are creating Masathai?",
+            "Goal of MCQ System in Masathai?",
+            "Importance of Citizenship Test?",
+            "Era for Citizenship Test importance?",
+            "Value of Citizenship Test?",
+            "MCQ System's role in cultural integration?",
+            "Challenge for MCQ System?",
+            "Citizenship Test's focus on citizens?",
+            "Context for MCQ System's value?",
+            "Citizenship Test insights into?",
+            "MCQ System's purpose for new citizens?",
+            "Citizenship Test importance in Masathai?",
+            "Important era for Citizenship Test?",
+            "MCQ System's insights into?",
+            "Not a focus of Citizenship Assessment System?",
+            "Valuable context for Citizenship Assessment System?",
+            "MCQ System's main takeaway?",
+            "Citizenship Assessment System's insights into?",
+            "Era with increased demand for cultural integration in Masathai?"
     };
 
-    private final String[][] options = {
-            {"London", "Paris", "Berlin", "Rome"},
-            {"Pacific Ocean", "Atlantic Ocean", "Indian Ocean", "Arctic Ocean"},
-            {"H2O", "CO2", "O2", "N2"},
-            {"Nile River", "Amazon River", "Yangtze River", "Mississippi River"},
-            {"Mercury", "Venus", "Earth", "Mars"},
-            {"Pokhara", "Kathmandu", "Bhaktapur", "Patan"},
-            {"Mercury", "Venus", "Earth", "Mars"},
-            {"Blue whale", "African elephant", "Giant squid", "American bison"},
-            {"Mount Everest", "K2", "Kanchenjunga", "Lhotse"},
-            {"China", "India", "United States", "Indonesia"},
-            {"Tamil", "Finnish", "Hungarian", "Turkish"},
-            {"Bowhead whale", "Greenland shark", "Ocean quahog", "Rougheye rockfish"},
-            {"Himalayas", "Andes", "Rocky Mountains", "Alps"},
-            {"Sahara Desert", "Arabian Desert", "Gobi Desert", "Patagonian Desert"},
-            {"Antarctica", "Greenland", "Siberia", "Alaska"},
-            {"Mariana Trench", "Tonga Trench", "Kuril-Kamchatka Trench", "Philippine Trench"},
-            {"Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"},
-            {"Callisto", "Ganymede", "Europa", "Io"},
-            {"Go", "Gl", "Au", "Ag"},
-            {"Mercury", "Venus", "Earth", "Mars"}
+     private final String[][] options = {
+            {"Economic", "Cultural", "Language", "Political"},
+            {"M, I, T", "S, V, T", "M, S, T", "P, M, T"},
+            {"Bureaucracy", "Migration", "Citizenship", "Diversity"},
+            {"Slow down", "Bureaucracy", "Integration", "Strict policies"},
+            {"Isolationism", "Decrease", "Diversity", "Closed borders"},
+            {"Opportunities", "Sports", "Culture", "Geography"},
+            {"Hinder", "Proficiency", "Encourage", "Enforce"},
+            {"Expedite", "Civic ed", "Mobility", "Backlog"},
+            {"Migration", "Knowledge", "Integration", "Diplomacy"},
+            {"Decline", "Isolation", "Expansion", "Borders"},
+            {"Opportunities", "Ideologies", "Masathai's history", "Law"},
+            {"Discourage", "Policies", "Masathai info", "Diversity limit"},
+            {"Bureaucracy", "Slow down", "Integration", "Strict policies"},
+            {"Homogeneity", "Isolation", "Decline", "Diversity"},
+            {"Integration", "Education", "Proficiency", "Citizenship"},
+            {"Expedite", "Isolation", "Citizenship", "Knowledge"},
+            {"Decline", "Backlog", "Education", "Mobility"},
+            {"Hinder", "Proficiency", "Mobility", "Integration"},
+            {"Opportunities", "Ideologies", "History", "Law"},
+            {"Homogeneity", "Isolation", "Decline", "Diversity"}
     };
 
     private final int[] answers = {
-            1,  // Question 1, correct answer is option 1 (Paris)
-            0,  // Question 2, correct answer is option 0 (Pacific Ocean)
-            0,  // Question 3, correct answer is option 0 (H2O)
-            1,  // Question 4, correct answer is option 1 (Amazon River)
-            0,  // Question 5, correct answer is option 0 (Mercury)
-            1,  // Question 6, correct answer is option 1 (Kathmandu)
-            0,  // Question 7, correct answer is option 0 (Venus)
-            1,  // Question 8, correct answer is option 1 (Blue whale)
-            0,  // Question 9, correct answer is option 0 (Mount Everest)
-            2,  // Question 10, correct answer is option 2 (China)
-            0,  // Question 11, correct answer is option 0 (Tamil)
-            1,  // Question 12, correct answer is option 1 (Greenland shark)
-            0,  // Question 13, correct answer is option 0 (Himalayas)
-            0,  // Question 14, correct answer is option 0 (Sahara Desert)
-            0,  // Question 15, correct answer is option 0 (Antarctica)
-            3,  // Question 16, correct answer is option 3 (Mariana Trench)
-            2,  // Question 17, correct answer is option 2 (Nitrogen)
-            1,  // Question 18, correct answer is option 1 (Ganymede)
-            2,  // Question 19, correct answer is option 2 (Au)
-            3   // Question 20, correct answer is option 3 (Mars)
+            1,  // Question 1, correct answer is option B (Cultural)
+            2,  // Question 2, correct answer is option C (Citizenship)
+            3,  // Question 3, correct answer is option C (Integration)
+            3,  // Question 4, correct answer is option D (Strict policies)
+            1,  // Question 5, correct answer is option B (Sports)
+            3,  // Question 6, correct answer is option C (Encourage)
+            4,  // Question 7, correct answer is option D (Borders)
+            2,  // Question 8, correct answer is option B (Civic ed)
+            3,  // Question 9, correct answer is option C (Integration)
+            1,  // Question 10, correct answer is option A (Expedite)
+            3,  // Question 11, correct answer is option C (Integration)
+            4,  // Question 12, correct answer is option D (Diversity)
+            1,  // Question 13, correct answer is option A (Integration)
+            2,  // Question 14, correct answer is option B (Backlog)
+            3,  // Question 15, correct answer is option C (Proficiency)
+            3,  // Question 16, correct answer is option C (Citizenship)
+            2,  // Question 17, correct answer is option B (Isolation)
+            3,  // Question 18, correct answer is option C (Citizenship)
+            4,  // Question 19, correct answer is option D (Knowledge)
+            1   // Question 20, correct answer is option A (Homogeneity)
     };
 
-    private final String[] correctAnswers = {
-            "Paris",
-            "Pacific Ocean",
-            "H2O",
-            "Amazon River",
-            "Mercury",
-            "Kathmandu",
-            "Venus",
-            "Blue whale",
-            "Mount Everest",
-            "China",
-            "Tamil",
-            "Greenland shark",
-            "Himalayas",
-            "Sahara Desert",
-            "Antarctica",
-            "Mariana Trench",
-            "Nitrogen",
-            "Ganymede",
-            "Au",
-            "Mars"
+     private final String[] correctAnswers = {
+            "Cultural",
+            "Citizenship",
+            "Integration",
+            "Strict policies",
+            "Sports",
+            "Encourage",
+            "Borders",
+            "Civic ed",
+            "Integration",
+            "Expedite",
+            "Integration",
+            "Diversity",
+            "Integration",
+            "Backlog",
+            "Proficiency",
+            "Citizenship",
+            "Isolation",
+            "Citizenship",
+            "Knowledge",
+            "Homogeneity"
     };
 
     public void initialize() {
