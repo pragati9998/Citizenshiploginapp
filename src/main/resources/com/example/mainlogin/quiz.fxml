@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="361.0" prefWidth="638.0" style="-fx-background-color: #023047;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainlogin.QuizController">
+<AnchorPane prefHeight="378.0" prefWidth="762.0" style="-fx-background-color: #023047;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainlogin.QuizController">
     <children>
-        <ImageView fitHeight="378.0" fitWidth="743.0" layoutX="-11.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="445.0" fitWidth="967.0" layoutX="-11.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@pexels-min-an-813269.jpg" />
             </image>
@@ -19,34 +15,46 @@
         <Label fx:id="label_question" layoutX="112.0" layoutY="122.0" text="Question" textFill="WHITE">
             <font>
                 <Font name="Arial Rounded MT Bold" size="18.0" />
-            </font></Label>
+            </font>
+        </Label>
         <RadioButton fx:id="option1" layoutX="127.0" layoutY="161.0" text="Option 1" textFill="#fcfafa" userData="0">
             <toggleGroup>
                 <ToggleGroup fx:id="toggleGroup" />
             </toggleGroup>
             <font>
                 <Font name="Arial Rounded MT Bold" size="14.0" />
-            </font></RadioButton>
+            </font>
+        </RadioButton>
         <RadioButton fx:id="option2" layoutX="128.0" layoutY="192.0" text="Option 2" textFill="#fffdfd" toggleGroup="$toggleGroup" userData="1">
             <font>
                 <Font name="Arial Rounded MT Bold" size="14.0" />
-            </font></RadioButton>
+            </font>
+        </RadioButton>
         <RadioButton fx:id="option3" layoutX="129.0" layoutY="222.0" text="Option 3" textFill="#ebe8e8" toggleGroup="$toggleGroup" userData="2">
             <font>
                 <Font name="Arial Rounded MT Bold" size="14.0" />
-            </font></RadioButton>
+            </font>
+        </RadioButton>
         <RadioButton fx:id="option4" layoutX="130.0" layoutY="253.0" text="Option 4" textFill="#f2f2f2" toggleGroup="$toggleGroup" userData="3">
             <font>
                 <Font name="Arial Rounded MT Bold" size="14.0" />
-            </font></RadioButton>
+            </font>
+        </RadioButton>
         <Button fx:id="button_next" layoutX="284.0" layoutY="304.0" mnemonicParsing="false" onAction="#handleNextButton" style="-fx-background-color: blue;" text="Next" textFill="#f7f5f5">
             <font>
                 <Font size="14.0" />
-            </font></Button>
+            </font>
+        </Button>
         <Label fx:id="label_result" layoutX="100.0" layoutY="350.0" text="" />
         <Button fx:id="button_back" layoutX="186.0" layoutY="304.0" mnemonicParsing="false" onAction="#handleBackButton" style="-fx-background-color: blue;" text="Back" textFill="#f7f5f5">
             <font>
                 <Font size="14.0" />
-            </font></Button>
+            </font>
+        </Button>
+        <Label fx:id="label_timer" layoutX="113.0" layoutY="70.0" text="Time: 05:00" textFill="WHITE">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="14.0" />
+            </font>
+        </Label>
     </children>
 </AnchorPane>

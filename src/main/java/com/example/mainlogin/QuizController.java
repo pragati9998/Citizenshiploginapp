@@ -1,5 +1,7 @@
 package com.example.mainlogin;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,8 +9,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 public class QuizController {
+
     @FXML
     private Label label_question;
 
@@ -36,11 +40,15 @@ public class QuizController {
     @FXML
     private Label label_result;
 
+    @FXML
+    private Label label_timer;
+
     private int currentQuestionIndex;
     private int correctAnswersCount;
     private int totalQuestions;
+    private int timeSeconds = 300; // 5 minutes
 
-     private final String[] questions = {
+    private final String[] questions = {
             "What's the purpose of the Masathai Citizenship Test?",
             "Which countries are creating Masathai?",
             "Goal of MCQ System in Masathai?",
@@ -63,7 +71,7 @@ public class QuizController {
             "Era with increased demand for cultural integration in Masathai?"
     };
 
-     private final String[][] options = {
+    private final String[][] options = {
             {"Economic", "Cultural", "Language", "Political"},
             {"M, I, T", "S, V, T", "M, S, T", "P, M, T"},
             {"Bureaucracy", "Migration", "Citizenship", "Diversity"},
@@ -109,28 +117,14 @@ public class QuizController {
             1   // Question 20, correct answer is option A (Homogeneity)
     };
 
-     private final String[] correctAnswers = {
-            "Cultural",
-            "Citizenship",
-            "Integration",
-            "Strict policies",
-            "Sports",
-            "Encourage",
-            "Borders",
-            "Civic ed",
-            "Integration",
-            "Expedite",
-            "Integration",
-            "Diversity",
-            "Integration",
-            "Backlog",
-            "Proficiency",
-            "Citizenship",
-            "Isolation",
-            "Citizenship",
-            "Knowledge",
-            "Homogeneity"
+    private final String[] correctAnswers = {
+            "Cultural", "Citizenship", "Integration", "Strict policies", "Sports",
+            "Encourage", "Borders", "Civic ed", "Integration", "Expedite",
+            "Integration", "Diversity", "Integration", "Backlog", "Proficiency",
+            "Citizenship", "Isolation", "Citizenship", "Knowledge", "Homogeneity"
     };
+
+    private Timeline timer;
 
     public void initialize() {
         toggleGroup = new ToggleGroup();
@@ -145,10 +139,48 @@ public class QuizController {
 
         loadQuestion(currentQuestionIndex);
         button_back.setDisable(true);
+
+        // Initialize timer
+        initializeTimer();
+    }
+
+    private void initializeTimer() {
+        timer = new Timeline(
+                new KeyFrame(Duration.seconds(1), event -> {
+                    if (timeSeconds > 0) {
+                        timeSeconds--;
+                        updateTimerLabel();
+                    } else {
+                        timer.stop();
+                        handleQuizTimeout();
+                    }
+                })
+        );
+        timer.setCycleCount(Timeline.INDEFINITE);
+        timer.play();
+    }
+
+    private void updateTimerLabel() {
+        int minutes = timeSeconds / 60;
+        int seconds = timeSeconds % 60;
+        label_timer.setText(String.format("Time: %02d:%02d", minutes, seconds));
+    }
+
+    private void handleQuizTimeout() {
+        label_result.setText("Time's up! Quiz has ended.");
+        button_next.setDisable(true);
+
+        // Disable all radio buttons in the toggle group
+        toggleGroup.getToggles().forEach(toggle -> {
+            if (toggle instanceof RadioButton) {
+                ((RadioButton) toggle).setDisable(true);
+            }
+        });
     }
 
     @FXML
     private void handleNextButton(ActionEvent event) {
+        // ... (unchanged)
         int selectedAnswerIndex = getSelectedAnswerIndex();
         if (selectedAnswerIndex == -1) {
             label_result.setText("Please select an answer.");
@@ -159,10 +191,10 @@ public class QuizController {
         if (selectedAnswerIndex == answers[currentQuestionIndex]) {
             correctAnswersCount++;
             label_result.setText("Correct!");
-            label_result.setTextFill(Color.GREEN);
+            label_result.setTextFill(Color.WHITE);
         } else {
             label_result.setText("Incorrect. The correct answer is: " + correctAnswers[currentQuestionIndex]);
-            label_result.setTextFill(Color.RED);
+            label_result.setTextFill(Color.WHITE);
         }
 
         button_back.setDisable(false);
@@ -179,6 +211,7 @@ public class QuizController {
 
     @FXML
     private void handleBackButton(ActionEvent event) {
+        // ... (unchanged)
         if (currentQuestionIndex > 0) {
             currentQuestionIndex--;
             loadQuestion(currentQuestionIndex);
@@ -191,6 +224,7 @@ public class QuizController {
     }
 
     private void loadQuestion(int index) {
+        // ... (unchanged)
         label_question.setText(questions[index]);
         option1.setText(options[index][0]);
         option2.setText(options[index][1]);
@@ -200,6 +234,7 @@ public class QuizController {
     }
 
     private int getSelectedAnswerIndex() {
+        // ... (unchanged)
         RadioButton selectedOption = (RadioButton) toggleGroup.getSelectedToggle();
         if (selectedOption != null) {
             int selectedAnswerIndex = Integer.parseInt(selectedOption.getUserData().toString());

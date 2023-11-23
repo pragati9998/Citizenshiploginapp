@@ -1,44 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainlogin.HelloController">
-    <AnchorPane prefHeight="282.0" prefWidth="236.0" style="-fx-background-color: #3c6e71;">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainlogin.HelloController">
+    <AnchorPane prefHeight="400.0" prefWidth="242.0" style="-fx-background-color: #3c6e71;">
       <children>
-         <ImageView fitHeight="246.0" fitWidth="201.0" layoutX="5.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="245.0" fitWidth="185.0" layoutX="14.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@Masathai-logos.jpeg" />
             </image>
          </ImageView>
       </children></AnchorPane>
-    <AnchorPane prefHeight="400.0" prefWidth="402.0" style="-fx-background-color: #d9d9d9;">
+    <AnchorPane prefHeight="400.0" prefWidth="386.0" style="-fx-background-color: #d9d9d9;">
         <TextField fx:id="tf_username" layoutX="165.0" layoutY="165.0" promptText="Enter your username" style="-fx-border-color: #020103;" />
-        <Button fx:id="button_login" layoutX="166.0" layoutY="261.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="151.0" style="-fx-background-color: blue;" text="Login" textFill="#f0f0f5">
+        <Button fx:id="button_login" layoutX="166.0" layoutY="260.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="151.0" style="-fx-background-color: blue;" text="Login" textFill="#f0f0f5">
             <font>
                 <Font size="18.0" />
             </font>
         </Button>
-        <Button fx:id="button_sign_up" layoutX="228.0" layoutY="316.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Sign up" textFill="#080a11" underline="true">
+        <Button fx:id="button_sign_up" layoutX="234.0" layoutY="314.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Sign up" textFill="#003cff" underline="true">
             <font>
-                <Font size="14.0" />
+                <Font name="Arial Black" size="14.0" />
             </font>
         </Button>
-        <Label layoutX="168.0" layoutY="322.0" prefHeight="17.0" prefWidth="78.0" text="Not a user?">
+        <Label layoutX="168.0" layoutY="321.0" prefHeight="17.0" prefWidth="78.0" text="Not a user?">
          <font>
-            <Font name="Arial Rounded MT Bold" size="12.0" />
+            <Font name="Arial Rounded MT Bold" size="13.0" />
          </font></Label>
       <PasswordField fx:id="tf_password" layoutX="165.0" layoutY="221.0" promptText="Enter your password" style="-fx-border-color: #020103;" />
-      <Label layoutX="168.0" layoutY="128.0" text="Login" textFill="#050607">
+      <Label layoutX="168.0" layoutY="123.0" text="Login" textFill="#050607">
          <font>
-            <Font name="Arial Rounded MT Bold" size="24.0" />
+            <Font name="Arial Black" size="24.0" />
          </font>
       </Label>
       <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="177.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
